@@ -86,3 +86,36 @@ sayHellothereTimes(() => sayHelloMyname('Walter'));
 // sayHellothereTimes(sayHelloMyname('Walter')); //we cannot do this because it will be called
 // and the argument which we pass won't be function anymore
 ```
+
+There is concept HOF, It means function return function
+
+This is example of function:
+
+```
+function notEquelToTheseNumbers(a, b) {
+  return function(num) {
+    return a !== num && b !== num;
+  };
+}
+
+const notFiveAndFour = notEquelToTheseNumbers(5, 4);
+
+notFiveAndFour(10);
+```
+
+in order to understand this concept we can examine this process like below:
+```
+const notFiveAndFour = notEquelToTheseNumbers(5, 4);
+
+const notFiveAndFour = function(num) {
+  return 5 !== num && 4 !== num;
+};
+
+notFiveAndFour(10); // this execute like below
+
+function(10) {
+    return 5 !== 10 && 4 !== 10;
+  };
+```
+
+
