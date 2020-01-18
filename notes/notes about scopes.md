@@ -83,4 +83,33 @@ console.log(hisName); /*but we do not have access hisName in here*/
 
 ```
 
+- Hosting is the concept of how JS treat variables.
 
+When we execute below code. we print "undefined"
+
+```
+console.log(car);
+let car = 'BMW'; // this won't work because of let and const is not hoisted
+// error message = ReferenceError: Cannot access 'car' before initialization
+
+```
+
+But with var it works.
+
+```
+console.log(car);
+var car = 'BMW'; // this works because variables with var is hoisted
+// undefined
+
+```
+
+in this case we can treat the code like below
+
+```
+var car;
+
+console.log(car);
+car = 'BMW'; // this works because variables with var is hoisted
+// undefined
+console.log(car); //BMW
+```
