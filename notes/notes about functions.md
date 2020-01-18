@@ -137,3 +137,15 @@ setTimeout(function() {
   console.log('hello');
 }, 3000);
 ```
+
+- Functions(function declerations) is also hoisted
+
+```
+sayMyName();
+function sayMyName() {
+  console.log('Walter');
+} //Walter
+
+```
+
+this code works because JS interpreter read fucntions first.
