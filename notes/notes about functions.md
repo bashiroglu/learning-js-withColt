@@ -104,6 +104,7 @@ notFiveAndFour(10);
 ```
 
 in order to understand this concept we can examine this process like below:
+
 ```
 const notFiveAndFour = notEquelToTheseNumbers(5, 4);
 
@@ -118,4 +119,21 @@ function(10) {
   };
 ```
 
+- callback is term that means the function which is argument for another fucntion, and it is used especially when we say when finish your job do this job (excute this callback function ).
 
+```
+function sayHello() {
+console.log('hello');
+
+}
+
+setTimeout(sayHello,3000)
+```
+
+- But it is common that we don't call function by their names, we refer them by anonymous
+
+```
+setTimeout(function() {
+  console.log('hello');
+}, 3000);
+```
