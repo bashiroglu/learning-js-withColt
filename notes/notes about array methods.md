@@ -122,3 +122,79 @@ const isEveryOfThemBiggerThanFive = nums2.every(num => num > 5);
 
 console.log(isEveryOfThemBiggerThanFive);// false
 ```
+
+- Sort is another array method, it helps us to sort arrays but by default it converts array elements to string, that is why we face unexpected result. If we want it as we wanted, we have to give compare function to work like below example.
+  For more visit MDN
+
+```
+const nums = [2, 4, 5, 6, 7, 119, 222, 50];
+
+const sorted = nums.sort((num1, num2) => num1 - num2);
+console.log(sorted);//[2, 4, 5, 6, 7, 50, 119, 222]
+
+```
+
+- Reduce is one of most important array methods. And it is a little bit differnt than others, because at the end it return one value, not boolean not array.
+  Let's start simple.
+
+```
+const nums = [2, 4, 5, 6, 7,];
+
+const reduced = nums.reduce((acc, currVal) => acc + currVal);
+console.log(reduced); //24
+
+```
+
+But we can do more than sum the elements of array. for example we can find max value of array.
+
+```
+const nums = [2, 4, 5, 6, 7];
+
+const max = nums.reduce((max, currVal) => {
+  if (max > currVal) {
+    return max;
+  }
+  return currVal;
+});
+console.log(max); //7
+```
+
+or other way arround but the same reslt.
+
+```
+const nums = [2, 4, 5, 6, 7];
+
+const max = nums.reduce((max, currVal) => {
+  if (max < currVal) {
+    return currVal;
+  }
+  return max;
+});
+console.log(max); //7
+```
+
+When we don't give any second element to reduce fucntion, it takes first element of array as a initial value acc but if we give it will take with that and first element of array would be current val in first cycle.
+
+```
+const nums = [2, 4, 5, 6, 7];
+
+const reduced = nums.reduce((acc, currVal) => acc + currVal, 10);
+console.log(reduced); //34
+```
+
+- We can also use Object as a acc. Exanple below
+
+```
+const votes = ['Yes', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'No'];
+
+const resultOfReduce = votes.reduce((obj, cur) => {
+  if (obj[cur]) {
+    obj[cur]++;
+  } else {
+    obj[cur] = 1;
+  }
+  return obj;
+}, {});
+
+console.log(resultOfReduce); // {Yes: 5, No: 4}
+```
