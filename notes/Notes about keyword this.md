@@ -53,7 +53,7 @@ const startCar = car.start;
 startCar(); //window
 ```
 
-This in arrow functions are totally different. With arrow functions don't matter how we called it, it always refer to window object.
+This in arrow functions are totally different. With arrow functions don't matter how we called it, it always refer to window object or parent object.
 
 ```
 const car = {
@@ -70,3 +70,7 @@ const stopCar = car.stop;
 car.stop();
 stopCar(); //window
 ```
+
+Key notes about this.
+
+1. Whenever we call function by using window object methods (like setinterval, settimeout etc) which holds this inside, this refer window because window object call it not us.
