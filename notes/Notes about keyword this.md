@@ -37,3 +37,36 @@ const car = {
 
 console.log(car.start()); //My Car started
 ```
+
+But this is not only it, This may change depends on how we call it or context of invocation. Below code we see this refer to window, Because function is called differently.
+We invoked the code from window.
+
+```
+const car = {
+  name: 'My Car',
+  start() {
+    console.log(this);
+  }
+};
+const startCar = car.start;
+
+startCar(); //window
+```
+
+This in arrow functions are totally different. With arrow functions don't matter how we called it, it always refer to window object.
+
+```
+const car = {
+  name: 'My Car',
+  start() {
+    console.log(this);
+  },
+  stop: () => {
+    console.log(this);
+  }
+};
+
+const stopCar = car.stop;
+car.stop();
+stopCar(); //window
+```
