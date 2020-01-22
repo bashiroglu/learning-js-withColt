@@ -125,3 +125,17 @@ const {
 console.log(transmission); //'automatic'
 console.log(speaker);//'ubl speaker'
 ```
+
+- computed properties. In objects, in order to have dynamic key for objects we used to use [] notation after creating array. But now we have new way of doing it.
+  It works like below:
+
+```
+const firstKey = 'role';
+const firstPropValue = 'admin';
+
+const obj1 = {
+  [firstKey]: firstPropValue
+};
+
+console.log(obj1);// { role: "admin"}
+```
