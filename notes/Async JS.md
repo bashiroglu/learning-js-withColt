@@ -1,3 +1,5 @@
 # Async JS
 
 Async JS is the term to handle function which takes a lot of time or unknown time. In that case we use async Js. Async codes in Js handle by Browser, when js encounter this kind of actions it transfer it to web apis handler of browser and after broswer solve or get response from it send its callback function to call stack of JS(technically firstly to callbacks queue)
+
+In order to give the function to browser to handle the response after did his job with requesting, we can give it the callback. But after several requesting which depends of each-other, this way syntactically get out of hand with many callbacks inside of each-other. That is why we avoid to use this and reeplace it with th promise syntax. Promise is the term that, we have promissed that we will get the response, even if error occur. 
