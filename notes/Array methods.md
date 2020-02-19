@@ -1,3 +1,5 @@
+# Array Methods
+
 - forEach is the array method to loop elements of array.
 
 We use like below, n represent the element of array.
@@ -197,4 +199,83 @@ const resultOfReduce = votes.reduce((obj, cur) => {
 }, {});
 
 console.log(resultOfReduce); // {Yes: 5, No: 4}
+```
+
+#### Slice method
+
+Slice is used to create copy of array while not modifie the original array and it returns new created array.
+
+```
+array.slice(from, until);
+```
+
+Be careful that second argument is not include last element of array if we started from 0 it finishes in 3 with array indexs.
+
+```
+const votes = ['1', '2', '3', 'No', 'No', 'Yes', 'No', 'Yes', 'No'];
+const array2 = votes.slice(0, 4);
+console.log(array2); //[ "1", "2", "3", "No" ]
+```
+
+#### Splice method
+
+Splice method is used to remove or to add array elements. It also modifie original array.
+In here first argument represent where the removing will start, second how many items.
+
+- removing with Splice
+
+```
+const votes = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const removedArray = votes.splice(0, 2);
+console.log(removedArray); //[ "1", "2" ]
+console.log(votes); //[ "3", "4", "5", "6", "7", "8", "9"]
+```
+
+if we don't define second argument, it will be removed untill the end from first argument.
+
+```
+const votes = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const removedArray = votes.splice(0);
+console.log(removedArray); //[ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+console.log(votes); //[]
+```
+
+- adding with Splice
+
+```
+array.splice(index, number of elements, element, element);
+```
+
+From the examples below yo can understand how it works.
+
+```
+const votes = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const removedArray = votes.splice(0, 2, '3', '4');
+console.log(removedArray); //[ "1", "2" ]
+console.log(votes); //[ "3", "4", "3", "4", "5", "6", "7", "8", "9" ]
+```
+
+```
+const votes = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const removedArray = votes.splice(0, 0, '-1', '0');
+console.log(removedArray); //[]
+console.log(votes); //[ "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", … ]
+```
+
+```
+const votes = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const removedArray = votes.splice(0, votes.length, '-1', '0');
+console.log(removedArray); //[ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+console.log(votes); //[ "-1", "0" ]
+```
+
+## Split method
+Split method is used to convert strings to array for that we need to have string and we can apply split on it in the example like below:
+```
+const votes = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const votesString = votes.toString();
+const array = votesString.split(',', 4);
+console.log(array); //[ "1", "2", "3", "4" ]
+console.log(votesString); //'1,2,3,4,5,6,7,8,9'
+console.log(votes); //[ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
 ```
